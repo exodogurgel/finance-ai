@@ -6,6 +6,7 @@ import { TimeSelect } from "./_components/time-select";
 import { isMatch } from "date-fns";
 import { TransactionsPieChart } from "./_components/transactions-pie-chart";
 import { getDashboard } from "@/data/get-dashboard";
+import { ExpensesPerCategory } from "./_components/expenses-per-category";
 
 interface HomeProps {
   searchParams: {
@@ -40,6 +41,9 @@ export default async function Home({ searchParams: { month } }: HomeProps) {
 
             <div className="grid-rows1 grid grid-cols-3 gap-6">
               <TransactionsPieChart {...dashboard} />
+              <ExpensesPerCategory
+                expensesPerCategory={dashboard.totalExpensePerCategory}
+              />
             </div>
           </div>
         </div>
